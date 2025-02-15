@@ -26,10 +26,10 @@ The system will be tested for login procedures, including valid and invalid logi
 
 Tests
 
--Valid Login: Enter correct card number and PIN.
--Invalid Card Number: Use an incorrect or non-existent card number.
--Incorrect PIN: Enter incorrect PIN multiple times.
--Locked Account Scenario: Verify behavior after multiple failed login attempts.
+- Valid Login: Enter correct card number and PIN.
+- Invalid Card Number: Use an incorrect or non-existent card number.
+- Incorrect PIN: Enter incorrect PIN multiple times.
+- Locked Account Scenario: Verify behavior after multiple failed login attempts.
 
 ### Transactions
 
@@ -37,13 +37,13 @@ Tests will be conducted for various financial transactions, including withdrawal
 
 Tests
 
--Deposit valid amounts into each account.
--Verify if balance updates correctly after deposits.
--Withdraw within the available balance limit.
--Attempt to withdraw more than the available balance
--Transfer between Checking, Savings, and Money Market accounts.
--Attempt invalid transfers (e.g., transferring more than available funds).
--Verify if balances update correctly after transfers.
+- Deposit valid amounts into each account.
+- Verify if balance updates correctly after deposits.
+- Withdraw within the available balance limit.
+- Attempt to withdraw more than the available balance
+- Transfer between Checking, Savings, and Money Market accounts.
+- Attempt invalid transfers (e.g., transferring more than available funds).
+- Verify if balances update correctly after transfers.
 
 ### Account Handling
 
@@ -51,8 +51,8 @@ The functionality of Checking, Savings, and Money Market accounts will be valida
 
 Tests
 
--Check balances for Checking, Savings, and Money Market accounts.
--Verify balance remains unchanged after viewing.
+- Check balances for Checking, Savings, and Money Market accounts.
+- Verify balance remains unchanged after viewing.
 
 ###ATM Cash Handling
 
@@ -60,8 +60,8 @@ Cash dispensing and deposit mechanisms will be tested to ensure the ATM correctl
 
 Tests
 
--Check to see if the atm availability balance correctly updates after a deposit and withdrawal is made.
--Check to see if atm availability balance remains the same after a transfer of funds between accounts is made
+- Check to see if the atm availability balance correctly updates after a deposit and withdrawal is made.
+- Check to see if atm availability balance remains the same after a transfer of funds between accounts is made
 
 ###Logs and Receipt Testing
 
@@ -69,7 +69,7 @@ The system’s ability to generate accurate transaction logs and printed receipt
 
 Test
 
--View logs and receipts after a transfer is made between savings and checking accounts. 
+- View logs and receipts after a transfer is made between savings and checking accounts. 
 
 ##Comparison of exploratory & manual functional testing:
 
@@ -81,18 +81,18 @@ Refer to the Jira report
 
 ##How pair testing was managed, how teamwork/effort was divided:
 
--The group was split into 2 pairs, with each pair handling one of the testing types.
---Exploratory testing was done by Alison Gartner and Svara Patel. Both Alison and Svara conducted exploratory tests based on the script they wrote collectivly. All failed tests were reported by both parties. 
--Manual functional testing was done by Zaira Ramji and Maryam Alsayed. Both members were assigned 20 tests to conduct on the system side-by-side. Any failed tests were confirmed by both group members on both machines. ---Both group members reported the bugs they found. This process was then repeated with version 1.1 of the system.
+- The group was split into 2 pairs, with each pair handling one of the testing types.
+-- Exploratory testing was done by Alison Gartner and Svara Patel. Both Alison and Svara conducted exploratory tests based on the script they wrote collectivly. All failed tests were reported by both parties. 
+- Manual functional testing was done by Zaira Ramji and Maryam Alsayed. Both members were assigned 20 tests to conduct on the system side-by-side. Any failed tests were confirmed by both group members on both machines. -- Both group members reported the bugs they found. This process was then repeated with version 1.1 of the system.
 
 ##Difficulties encountered, challenges overcome, lessons learned:
--Difficulty: ensuring the system testing was exhaustive (exploratory)
--Challenges: ensuring we knew how to recreate bugs found
--Lesson: conduct tests more systematically and go in with a game plan (manual)
+- Difficulty: ensuring the system testing was exhaustive (exploratory)
+- Challenges: ensuring we knew how to recreate bugs found
+- Lesson: conduct tests more systematically and go in with a game plan (manual)
 
 ##Comments/feedback on the lab and lab document itself: 
--Would help if the system details were more thorough as it was difficult to differentiate between a feature and a bug. For example, a card is confiscated after 3 incorrect pin attempts, it seems to be a feature but it --is not stated as one so causes confusion in whether to classify it as a bug or not.
--Manual functional testing table could also be more thorough as it was occasionally difficult to discern what the inputs were supposed to be to properly conduct the tests
+- Would help if the system details were more thorough as it was difficult to differentiate between a feature and a bug. For example, a card is confiscated after 3 incorrect pin attempts, it seems to be a feature but it - is not stated as one so causes confusion in whether to classify it as a bug or not.
+- Manual functional testing table could also be more thorough as it was occasionally difficult to discern what the inputs were supposed to be to properly conduct the tests
 
 
 
