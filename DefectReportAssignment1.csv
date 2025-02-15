@@ -1,0 +1,260 @@
+﻿Summary,Issue key,Issue id,Issue Type,Status,Project key,Project name,Project type,Project lead,Project lead id,Project description,Priority,Resolution,Assignee,Assignee Id,Reporter,Reporter Id,Creator,Creator Id,Created,Updated,Last Viewed,Resolved,Fix versions,Due date,Votes,Description,Environment,Watchers,Watchers,Watchers Id,Watchers Id,Original estimate,Remaining Estimate,Time Spent,Work Ratio,Σ Original Estimate,Σ Remaining Estimate,Σ Time Spent,Security Level,Inward issue link (Duplicate),Outward issue link (Duplicate),Outward issue link (Duplicate),Custom field (Actual end),Custom field (Actual start),Custom field (Change reason),Custom field (Change risk),Custom field (Change type),Custom field (Development),Custom field (Epic Color),Custom field (Epic Name),Custom field (Epic Status),Custom field (Goals),Custom field (Impact),Custom field (Issue color),Custom field (Locked forms),Custom field (Open forms),Custom field (Project overview key),Custom field (Project overview status),Custom field (Rank),Custom field (Request Type),Custom field (Sentiment),Custom field (Start date),Custom field (Story point estimate),Custom field (Submitted forms),Custom field (Target end),Custom field (Target start),Custom field (Team),Custom field (Total forms),Custom field (Vulnerability),Custom field ([CHART] Date of First Response),Custom field ([CHART] Time in Status),Comment,Status Category,Status Category Changed
+MFT: Transfer - System prints incorrect receipt,UU438-21,10020,Bug,To Do,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Maryam Alsayed,712020:1515cbfa-aeda-4eda-92fe-bd451be9d316,Maryam Alsayed,712020:1515cbfa-aeda-4eda-92fe-bd451be9d316,13/Feb/25 8:49 PM,13/Feb/25 9:06 PM,14/Feb/25 4:16 PM,,,,0,"Function being tested: System performs a legitimate transfer transaction properly
+
+Initial system state: System is displaying menu of transaction types.
+
+Input and steps to recreate:
+
+# Choose transfer action
+# Choose transfer from checking
+# Choose transfer to savings
+# Input $10.00
+
+Expected Output: System should print receipt with $10 transferred from chequing to savings. Available balance in chequing should be $90. Available balance in savings should be $1010.
+
+Actual Output: Receipt shows transfer from savings to chequing instead of the actual input. Balance transferred is $9.50. Balance in savings is now $1009.50. Incorrect card number was also printed on receipt.",,Maryam Alsayed,,712020:1515cbfa-aeda-4eda-92fe-bd451be9d316,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i00047:,,,,,,,,,,,,,"13/Feb/25 9:02 PM;712020:1515cbfa-aeda-4eda-92fe-bd451be9d316;Version 1.1: Bug partially fixed
+
+Steps were repeated. Receipt still shows from savings to chequing instead of the reverse. Account in savings is now correctly listed as $1010. Incorrect card number is still being printed on the receipt (2 instead of 1).",To Do,13/Feb/25 8:49 PM
+MFT: Invalid Pin Extension - Correct pin not accepted after 3 incorrect entries,UU438-20,10019,Bug,To Do,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Maryam Alsayed,712020:1515cbfa-aeda-4eda-92fe-bd451be9d316,Maryam Alsayed,712020:1515cbfa-aeda-4eda-92fe-bd451be9d316,13/Feb/25 8:27 PM,13/Feb/25 8:27 PM,14/Feb/25 2:48 PM,,,,0,"Function being tested: Correct re-entry of PIN is accepted
+
+Initial system state: Request to re-enter PIN is being displayed.
+
+Input and steps to recreate:
+
+From the PIN re-entry screen, enter the incorrect PIN for the card inserted. Then, enter an incorrect PIN again. The ATM tells you to contact the bank.
+
+Expected output: Request to re-enter pin is shown, at which point you should be able to input the correct PIN and move to the transaction stage.
+
+Actual Output: The ATM says the card is locked and tells you to contact the bank.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i0003z:,,,,,,,,,,,,,,To Do,13/Feb/25 8:27 PM
+MFT: Invalid PIN Extension - Correct PIN not accepted after 2 incorrect attempts,UU438-19,10018,Bug,To Do,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Maryam Alsayed,712020:1515cbfa-aeda-4eda-92fe-bd451be9d316,Maryam Alsayed,712020:1515cbfa-aeda-4eda-92fe-bd451be9d316,13/Feb/25 8:12 PM,13/Feb/25 8:12 PM,,,,,0,"Function being tested: Correct re-entry of PIN is accepted
+
+Initial system state: Request to re-enter PIN is being displayed.
+
+Input and steps to recreate:
+
+(From the PIN re-entry screen) Enter an incorrect PIN. Then enter a correct PIN. The request to re-enter PIN will be shown a third time.
+
+Expected Output: Correct PIN accepted, menu of transaction types displayed.
+
+Actual Output: Entering the correct PIN after 2 incorrect entries should lead to the PIN being accepted and it showing the menu of transaction types. Correct PIN needs to be entered again to be accepted.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i0003r:,,,,,,,,,,,,,,To Do,13/Feb/25 8:12 PM
+MFT: Withdrawal - System incorrectly verifies that it  has sufficient cash on hand to fulfill request,UU438-17,10016,Bug,Done,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,Done,,,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,11/Feb/25 7:05 PM,13/Feb/25 8:19 PM,14/Feb/25 4:28 PM,13/Feb/25 8:18 PM,1.1,,0,"Withdrawal 15
+
+Function being tested: System verifies that it has sufficient cash on hand to fulfill the request
+
+Initial System State: System has been started up with less than the maximum withdrawal amount in cash on hand; System is requesting a withdrawal amount
+
+Input and steps: Initially insert $400 (20 $20.00 bills) and access card 1 with the correct pin. From the menu of transaction types, chose withdrawal and then select  to withdraw from the checking account. The ATM should have a maximum initial withdrawal amount of $100. Select $200, which is more than the system has available to dispense.
+
+Expected output: System displays an appropriate message and asks customer to choose a different amount. The withdrawal cannot take place as the system does not have sufficient cash on hand to fulfill the request.
+
+Test failed - 
+
+Actual output: The system successfully withdrew $20. The amount the system withdrew was inconsistent with the amount selected, and it should not have withdrawn cash anyway. Additionally, the system withdrew $20.00 from $100 instead of the initial balance of $200. 
+
+Also, the receipt prints that the transaction was performed on card 2 instead of card 1. The log correctly identifies card 1 but still prints that $20.00 was withdrawn.",,Zaira Ramji,,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i0003j:,,,,,,,,,,,,3_*:*_1_*:*_0_*|*_10003_*:*_1_*:*_319,"11/Feb/25 10:38 PM;712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f;Version 1.1 - RESOLVED
+
+Repeated the process. The system correctly displayed the message for being unable to withdraw $200. It states “Insufficient available balance”. ",Done,13/Feb/25 8:18 PM
+ET: Deposit - deposit to money market ,UU438-16,10015,Bug,In Review,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,11/Feb/25 6:53 PM,14/Feb/25 8:23 PM,14/Feb/25 4:09 PM,,1.1,,0,"Function being tested: System attempts to check if the deposit to the money market was accepted 
+
+Initial System State: System is initially on and waiting for user to input card 
+
+Input: 
+
+# click on then select 100 for the number of $20 bills to put into the ATM 
+# click insert card then enter the information for card 1 and its password 42
+# do the steps to make a deposit to money mart for $20
+
+Expected output: The deposit should have been accepted 
+
+Test failed: Once logged into account 1 and the deposit was chosen the output was that the account type was invalid and the we could not make the deposit to the money market",,Svara Patel,,712020:a0859968-f2d3-446a-949e-79e37154467c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i0003b:,,,,,,,,,,,,,"14/Feb/25 8:23 PM;712020:a0859968-f2d3-446a-949e-79e37154467c;Version 1.1 (TEST FAILED) 
+
+After following the steps above there was still an invalid account error",In Progress,14/Feb/25 8:23 PM
+ET: Deposit - ATM balance update ,UU438-15,10014,Bug,In Review,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,11/Feb/25 6:51 PM,14/Feb/25 8:24 PM,12/Feb/25 7:56 AM,,1.1,,0,"Function being tested: System attempts to check if the ATM balance has changed 
+
+Initial System State: System is initially on and is waiting for user to put in card information 
+
+Input: 
+
+# click on then select 100 for the number of $20 bills to put into the ATM 
+# click insert card then enter the information for card 2 and its password 1234
+# do the steps to make a deposit to checking for $20
+# press 4 to check balance inquiry 
+# click the checking
+
+Expected output: The total balance should have increased by $20 
+
+Test failed: The deposit to the checking account had no increased ATM total balance by $10, but there was a deposit of $20 through the checking account which should have had a larger impact on the ATM balance",,Svara Patel,,712020:a0859968-f2d3-446a-949e-79e37154467c,,,,,,,,,,UU438-3,,,,,,,,,,,,,,,,,,,0|i00033:,,,,,,,,,,,,,"14/Feb/25 8:18 PM;712020:a0859968-f2d3-446a-949e-79e37154467c;Version 1.1 (TEST FAILED) (partially) 
+
+The above steps were recreated and the amount of total balance in the ATM increases but was short $0.10. ",In Progress,14/Feb/25 8:19 PM
+ET: Deposit - balance update after deposit ,UU438-14,10013,Bug,Done,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,Done,,,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,11/Feb/25 6:47 PM,14/Feb/25 8:13 PM,12/Feb/25 7:56 AM,14/Feb/25 8:13 PM,1.1,,0,"Function being tested: System attempts to check if the balance of card 2 has increased 
+
+Initial System State: System is initially in Idle
+
+Input: 
+
+# click on then select 100 for the number of $20 bills to put into the ATM 
+# click insert card then enter the information for card 2 and its password 1234
+# do the steps to make a deposit to checking for $20
+# press 4 to check balance inquiry 
+# click the checking
+
+Expected output: The available balance given should be $120 
+
+Test failed: the total available balance was $119.50 which is $0.50 short ",,Svara Patel,,712020:a0859968-f2d3-446a-949e-79e37154467c,,,,,,,,,,UU438-3,,,,,,,,,,,,,,,,,,,0|i0002v:,,,,,,,,,,,,3_*:*_1_*:*_0_*|*_10003_*:*_1_*:*_9685415,"14/Feb/25 8:13 PM;712020:a0859968-f2d3-446a-949e-79e37154467c;Version 1.1 (TEST PASSED) 
+
+recreating the steps this version successfully transfers the amount into the checking balance. When the checking balance is displayed the total amount available should be and is $120.",Done,14/Feb/25 8:13 PM
+ET: Fund Transfer Test - checking the balance in checking ,UU438-12,10011,Bug,Done,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,Done,,,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,11/Feb/25 6:41 PM,14/Feb/25 7:56 PM,12/Feb/25 7:56 AM,14/Feb/25 7:56 PM,1.1,,0,"Function being tested: System attempts to check if the transfer $100 from the savings to checking account was successful
+
+Initial System State: System is initially in the service window after the user has made a transfer to the checking account of $20 
+
+Input: 
+
+# click on then select 100 for the number of $20 bills to put into the ATM 
+# click insert card then enter the information for card 1 and its password 4
+# do the steps to make a deposit from savings to checking for $20
+# press 4 to check balance inquiry 
+# click the checking
+
+Expected output: The checking balance should have been $120
+
+Test failed: The checking balance was $119.50 so there is a missing $0.50.",,Svara Patel,,712020:a0859968-f2d3-446a-949e-79e37154467c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i0002f:,,,,,,,,,,,,10003_*:*_1_*:*_263696680_*|*_10005_*:*_1_*:*_0,"14/Feb/25 7:56 PM;712020:a0859968-f2d3-446a-949e-79e37154467c;Version 1.1 (TEST PASSED) 
+
+This version fixed it the transfer amount was $20 and the balance was $120. ",Done,14/Feb/25 7:56 PM
+ET: Fund Transfer Test - savings to checking ,UU438-11,10010,Bug,In Review,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,11/Feb/25 6:38 PM,14/Feb/25 7:31 PM,14/Feb/25 4:09 PM,,1.1,,0,"Function being tested: System attempts to transfer $10 from the savings to checking account.
+
+Initial System State: System is in the service selection window
+
+Input: 
+
+# click on then select 100 for the number of $20 bills to put into the ATM 
+# click insert card then enter the information for card 1 and its password 42
+# press 3 to make a transfer 
+# the user should click the savings then checkings to make the transfer from savings to checking 
+# click in $20 to transfer that amount  
+
+Expected output: The transfer should have been successful with a full $20 going into the checking from the savings. 
+
+Test failed: The transfer said it was successful but it says the transfer was from chekcings to savings but the amount transferred was $19.50 not the full $20",,Svara Patel,,712020:a0859968-f2d3-446a-949e-79e37154467c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i00027:,,,,,,,,,,,,,"14/Feb/25 7:12 PM;712020:a0859968-f2d3-446a-949e-79e37154467c;Version 1.1 TEST FAILED (partially) 
+
+When the above steps were repeated there was a transfer of $20 but the account that it is saying the transfer happened is from Checking to Saving even though saving to checking was selected.",In Progress,14/Feb/25 7:13 PM
+ET: Withdrawal tests - withdraw from the checking account,UU438-10,10009,Bug,Done,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,Done,,,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,11/Feb/25 6:28 PM,14/Feb/25 6:59 PM,12/Feb/25 7:56 AM,14/Feb/25 6:58 PM,1.1,,0,"Function being tested: System is withdrawing $20 from the first checking account
+
+Initial System State: System is initially in the service selection window
+
+Input: 
+
+# click on then select 100 for the number of $20 bills to put into the ATM 
+# click insert card then enter the information for card 1 and its password 42
+# click 1 to make withdrawl from checking account
+# click 1 again to make a withdrawl of $20
+
+Expected output: The $20 should be taken out to leave a total of $80
+
+Test failed: the output withdraws $40 from the checking account",,Svara Patel,,712020:a0859968-f2d3-446a-949e-79e37154467c,,,,,,,,,,UU438-2,,,,,,,,,,,,,,,,,,,0|i0001z:,,,,,,,,,,,,10003_*:*_1_*:*_260992263_*|*_10005_*:*_1_*:*_0,"14/Feb/25 6:58 PM;712020:a0859968-f2d3-446a-949e-79e37154467c;Version 1.1 - DEFECT FIXED 
+
+The same process as above was repeated and the withdrawn amount is the correct $20",Done,14/Feb/25 6:58 PM
+ET: Balance Inquiry Test - Login to check checking and money market account with card 2,UU438-9,10008,Bug,Done,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,Done,,,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,11/Feb/25 3:02 PM,14/Feb/25 5:27 PM,14/Feb/25 4:32 PM,14/Feb/25 4:30 PM,1.1,,0,"Function being tested: System checks to see if a valid login has been input and then provides the checking and money market balances.
+
+Initial System State: For this test the system is initially in the choose transaction type selection area
+
+Input: 
+
+# click on then select 100 for the number of $20 bills to put into the ATM 
+# click insert card then enter the information for card 2 and its password 1234
+# press 4 to check balance inquiry 
+# the user should be able to see the checking, money mart options 
+# click each one to see the value in them 
+
+Expected output: The checking should say $100, money market should say $5000.
+
+Test failed: Once logged in and option four was selected, the checking and money mart was displayed. Once checking was clicked it worked and displayed $100 but money mart showed invalid account type when it was selected.",,Alison Gartner,,712020:734b8504-0dfb-4082-a198-53c0615b8243,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i0001r:,,,,,,,,,,,2025-02-14 23:31:53.936,10003_*:*_1_*:*_264463611_*|*_10005_*:*_1_*:*_0,"14/Feb/25 4:31 PM;712020:734b8504-0dfb-4082-a198-53c0615b8243;Version 1.1 - DEFECT FIXED
+
+Process was repeated and the user was able to access both their checking and money management accounts. Both accounts displayed the correct balances, $100 in checking account and $5000 in money management account. ",Done,14/Feb/25 4:30 PM
+ET: Balance Inquiry Test - View savings and checking account card 1,UU438-8,10007,Bug,In Progress,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,Svara Patel,712020:a0859968-f2d3-446a-949e-79e37154467c,11/Feb/25 3:00 PM,14/Feb/25 5:21 PM,14/Feb/25 4:30 PM,,1.1,,0,"Function being tested: System checks to see if a valid login has been input and then provides the number of saving associated with that value
+
+Initial System State: System is on the insert card menu
+
+Input: 
+
+# click on then select 100 for the number of $20 bills to put into the ATM 
+# click insert card then enter the information for card 1 and its password 42
+# press 4 to check balance inquiry 
+# the user should be able to see the checking, savings options 
+# click each one to see the value in them 
+
+Expected output: The checking should say $100, saving say $1000, and the money market shouldn’t exist.
+
+Test failed: Once logged in through card account 1 and option four was selected, the checking was displayed but it seems the savings account did not exist. When checking was clicked there was a value of $100 present but when money mart was clicked the output said there was a savings value of $1000",,Alison Gartner,Svara Patel,712020:734b8504-0dfb-4082-a198-53c0615b8243,712020:a0859968-f2d3-446a-949e-79e37154467c,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i0001j:,,,,,,,,,,,2025-02-14 23:19:39.118,,"14/Feb/25 4:19 PM;712020:734b8504-0dfb-4082-a198-53c0615b8243;Version 1.1 - PART OF DEFECT IS FIXED V1.1 (Partially fixed)
+
+Process was repeated and the user was able to access both their checking and savings account. The savings account first said there was an error and displayed $500 but in the receipt said the total balance and available is $1000. The user also no longer had access to the money market account and was able to view the $100 balance in the checking account",In Progress,14/Feb/25 4:19 PM
+MFT: Invalid Pin Extension - Correct pin not accepted,UU438-5,10004,Bug,To Do,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Maryam Alsayed,712020:1515cbfa-aeda-4eda-92fe-bd451be9d316,Maryam Alsayed,712020:1515cbfa-aeda-4eda-92fe-bd451be9d316,11/Feb/25 12:02 PM,13/Feb/25 8:07 PM,14/Feb/25 2:53 PM,,1.1,,0,"Function being tested: Correct re-entry of PIN is accepted
+
+Initial system state: Request to re-enter PIN is being displayed
+
+Input and steps to recreate:
+
+From the PIN re-entry screen, enter the correct PIN for the card inserted. Request to re-enter PIN will be shown a second time.
+
+Expected Output: Correct PIN accepted, menu of transaction types displayed
+
+Actual Output: Entering the correct pin leads to it showing the prompt to enter the pin again. Correct pin needs to be entered twice to be accepted.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i0000v:,,,,,,,,,,,,,,To Do,11/Feb/25 12:02 PM
+MFT: Inquiry - Account inquiry incorrect,UU438-4,10003,Bug,In Progress,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,11/Feb/25 11:23 AM,13/Feb/25 8:21 PM,14/Feb/25 2:53 PM,,1.1,,0,"Inquiry: 34
+
+Function being tested: System performs a legitimate inquiry transaction properly
+
+Initial system state: System is displaying menu of account types
+
+Input and steps: Start the system by inserting 10 $20.00 bills ($200). Insert card 1 and enter the correct pin. From the menu of transaction types, select Balance Inquiry (number 4). Chose the checking account (number 1).
+
+Expected output: System prints a correct receipt showing correct balance; System records transaction correctly in the log (showing both message to the bank and approval back). The correct balance should be $200 since $200 was initially inserted into the machine (or it should be $200 plus an initial balance of $100 as outlined in the introduction to the assignment)
+
+Test failed - 
+
+Actual Output: Receipt is printed that correctly states the inquiry is for a checking account. However, both the total balance and available balance are $100. The total balance should be at least $200. Additionally, the receipt is printed for card 2 instead of card 1.
+
+The log correctly identifies card 1 and reads “Message:   INQUIRY  CARD# 1 TRANS# 1 FROM  0 NO TO NO AMOUNT
+Response:  SUCCESS”",,Zaira Ramji,,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0|i0000n:,,,,,,,,,,,,,"11/Feb/25 10:35 PM;712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f;Version 1.1 - DEFECT STILL EXISTS IN V1.1 
+
+Repeated the process. Receipt still correctly states that the transaction type is inquiry. The total and available balances are still printed as $100 when the total balance should be $200. The receipt is still printed for card 2 instead of card 1.  The log message reads the same as version 1.0.",In Progress,11/Feb/25 11:23 AM
+MFT: Deposit - Incorrectly performs deposit transaction,UU438-3,10002,Bug,In Progress,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,11/Feb/25 11:18 AM,13/Feb/25 8:21 PM,12/Feb/25 8:50 AM,,1.1,,0,"Deposit: 22
+
+Function being tested: System performs a legitimate deposit transaction properly
+
+Initial System State: System is requesting that customer insert an envelope
+
+Input and steps: 
+
+The system started with $200 (enter 10 for the number of $20.00 bills) inserted on card 1, which entered with the correct pin of 42. Select deposit from the menu of transaction types. Choose the checking account to deposit to. Deposit $5.00. Insert an envelope
+
+Expected output: System accepts envelope; prints a correct receipt showing amount + correct updated balance; records transaction correctly in the log
+
+Test failed -
+
+Actual output: Receipt correctly states that the deposited amount into a checking account was $5.00. However, it withdrew $5.00 instead of depositing it. It also did not retain the initial balance of $200, instead it withdrew $5.00 from $100, leaving a total balance of $95.00 and an available amount as $100. 
+
+( or it withdrew $105 from $200)
+
+Additionally, the receipt states that the transaction was done on card 2, not card 1. The log correctly identifies that the transaction was done on card 1.",,Zaira Ramji,,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,,,,,,,,,,UU438-15,UU438-14,,,,,,,,,,,,,,,,,0|i0000f:,,,,,,,,,,,,,"11/Feb/25 9:40 PM;712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f;Version 1.1: DEFECT STILL EXISTS IN V1.1 
+
+(Partially fixed?)
+
+The process was repeated and the system now deposits the balance instead of withdrawing it, so the bug is partially fixed. However, the system takes a 10 cent fee that was not disclosed in the system documentation. Additionally, the receipt added the balance to $100 instead of $200, showing a total balance of $104.90. 
+
+The log correctly states that $5.00 was deposited with card 1.",In Progress,11/Feb/25 11:18 AM
+MFT: Withdrawal - System does not perform legitimate withdrawal properly,UU438-2,10001,Bug,In Progress,UU438,438-Assignment1-Group4,software,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,Medium,,,,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,Zaira Ramji,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,10/Feb/25 10:28 PM,13/Feb/25 8:30 PM,14/Feb/25 4:17 PM,,1.1,,0,"MFT 14: Withdrawal 
+
+Function being tested: System performs a legitimate withdrawal transaction properly
+
+Initial system state: System is displaying the menu of withdrawal amounts
+
+Input and steps: 
+
+10 $20.00 bills were inserted, which should lead to an initial balance of $200. (Or $100 + $200 = $300 since the assignment markdown file states that the chequing account starts with $100, however a TA said that that is not correct.) The actions are performed on card 1, with correct pin number 42. Chose to withdraw from the chequing account. Chose to withdraw $20, which is an amount that the system has and an amount that is not greater than the account balance.
+
+Expected Output: System dispenses this amount of cash; System prints a correct receipt showing amount and correct updated balance; System records transaction correctly in the log (showing both message to the bank and approval back)
+
+Test failed. 
+
+Actual output: The system withdrew $40.00. The amount withdrawn is not equal to the amount selected. Also, the amount was withdrawn from a balance of $100 instead of $200. Additionally, the receipt printed recorded the transaction as happening on card 2 instead of card 1. The log correctly shows that withdrawal was from card 1, but the amount is still $40.00 which is incorrect",,Zaira Ramji,,712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f,,,,,,,,,,,UU438-10,,,,,,,,,,,,,,,,,,0|i00007:,,,,,,,,,,,,,"11/Feb/25 9:45 PM;712020:1de07e5f-ac0a-40dc-beed-1246c13ffa2f;Version 1.1 - DEFECT STILL EXISTS IN V1.1 (Partially fixed?)
+
+Process was repeated and $20.00 was correctly withdrawn. $20.00 was correctly shown on the receipt. However, the total amount withdrawn from should have been $200, and it is instead still $100. Additionally, the system is still saying that it is withdrawing from card 2 even though card 1 was inserted. The log correctly identifies Card 1 and that $20.00 was withdrawn",In Progress,10/Feb/25 10:28 PM
